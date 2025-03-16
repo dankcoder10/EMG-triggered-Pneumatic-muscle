@@ -1,0 +1,22 @@
+
+int emgpin=A5;
+int emgval=0;
+int thresh_hold=700;
+void setup()
+ {
+   Serial.begin(9600);
+  pinMode(8, OUTPUT);
+ }
+
+void loop()
+ {
+  emgval=analogRead(emgpin);
+  Serial.println(emgval);
+  if(emgval>thresh_hold)
+   {
+     digitalWrite(8, HIGH);   // turn the solenoid on
+     delay(1000);             // (optional part)
+     digitalWrite(8, LOW);    // turn the solenoid off
+     delay(1000);
+   }
+}
